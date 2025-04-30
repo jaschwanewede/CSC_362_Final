@@ -23,7 +23,7 @@ class ForceDirectedGraph {
         vis.config.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
         vis.config.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
 
-        //vis.colorScale = d3.scaleOrdinal(d3.schemeCategory10);//ADD COLORSCALE
+        vis.colorScale = d3.scaleOrdinal(d3.schemeCategory10);//ADD COLORSCALE
     
         vis.svg = d3.select(vis.config.parentElement).append('svg')
           .attr('width', vis.config.containerWidth)
@@ -46,7 +46,7 @@ class ForceDirectedGraph {
         vis.simulation.nodes(vis.data.nodes);
         vis.simulation.force('link').links(vis.data.links);
     
-        //vis.colorScale.domain(vis.data.nodes.map(d => d.group)); //ADD COLORSCALE
+        vis.colorScale.domain(vis.data.nodes.map(d => d.group)); //ADD COLORSCALE
         
         vis.renderVis();
   
