@@ -22,7 +22,7 @@ class ForceDirectedGraph {
         vis.config.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
         vis.config.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
 
-        //vis.colorScale = d3.scaleOrdinal(d3.schemeCategory10);//ADD COLORSCALE
+        vis.colorScale = d3.scaleOrdinal(d3.schemeCategory10);//ADD COLORSCALE
     
         vis.svg = d3.select(vis.config.parentElement).append('svg')
           .attr('width', vis.config.containerWidth)
@@ -45,7 +45,7 @@ class ForceDirectedGraph {
         vis.simulation.nodes(vis.data.nodes);
         vis.simulation.force('link').links(vis.data.links);
     
-        //vis.colorScale.domain(vis.data.nodes.map(d => d.group)); //ADD COLORSCALE
+        vis.colorScale.domain(vis.data.nodes.map(d => d.group)); //ADD COLORSCALE
         
         vis.renderVis();
   
@@ -63,8 +63,8 @@ class ForceDirectedGraph {
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
-            .attr('r', d => d.size/100) //CHECK FOR FUNCTIONALITY, CHANGE TO LOG SCALE
-            .attr('fill', d => 'blue'); //CHANGE TO Y/N PARTY SYSTEM    
+          .attr('r', d => 3 * Math.log10(d.size)+4) //PLAY AROUND W LOG SCALE ~ Mult is divergent, add is convergent
+          .attr('fill', d => vis.colorScale(d.id)); //CHANGE TO Y/N PARTY SYSTEM    
     
         vis.simulation.on('tick', () => {
           links
