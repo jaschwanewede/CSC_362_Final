@@ -74,16 +74,16 @@ class ForceDirectedGraph {
             .on("drag", dragged)
             .on("end", dragended));
       
-        nodes.on('mouseover', (event, d) => {
-          d3.select('#tooltip')
-            .style('display', 'block')
-            .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
-            .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
-            .html(`
-              <div class="tooltip-title"><strong>Franchise: </strong>${d.data.id}</div>
-              <div><i>Estimated Copies Sold (Millions): </i>${d.data.size}</div>
-              <div><i>Main Genre: </i>${d.data.genre}</div>
-            `);
+            nodes.on('mouseover', (event,d) => {
+              d3.select('#tooltip')
+                .style('display', 'block')
+                .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')   
+                .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
+                .html(`
+                  <div class="tooltip-title"><strong>Franchise: </strong>${d.id}</div>
+                  <div><i>Estimated Copies Sold (Millions): </i>${d.size}</div>
+                  <div><i>Main Genre: </i>${d.genre}</div>
+                `);
         });
       
         vis.simulation.on('tick', () => {
