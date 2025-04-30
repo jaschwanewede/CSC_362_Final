@@ -36,7 +36,7 @@ class ForceDirectedGraph {
           .force('link', d3.forceLink()
             .id(d => d.id)
             .distance(100)
-            .strength(0.05))
+            .strength(0.04))
           .force('charge', d3.forceManyBody())
           .force('center', d3.forceCenter(vis.config.width / 2, vis.config.height / 2));
       
@@ -59,40 +59,62 @@ class ForceDirectedGraph {
     
       renderVis() {
         let vis = this;
-    
+      
         const links = vis.chart.selectAll('line')
           .data(vis.data.links, d => [d.source, d.target])
           .join('line');
-    
+      
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
-          .attr('r', d => 3 * Math.log10(d.size)+4) //PLAY AROUND W LOG SCALE ~ Mult is divergent, add is convergent 
-          .attr("fill", d => d.party === "Y" ? "red" : "blue"); 
-    
+          .attr('r', d => 3 * Math.log10(d.size) + 4)
+          .attr("fill", d => d.party === "Y" ? "red" : "blue")
+          .call(d3.drag() //DRAG CALL
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended));
+      
+        nodes.on('mouseover', (event, d) => {
+          d3.select('#tooltip')
+            .style('display', 'block')
+            .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
+            .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
+            .html(`
+              <div class="tooltip-title"><strong>Franchise: </strong>${d.data.id}</div>
+              <div><i>Estimated Copies Sold (Millions): </i>${d.data.size}</div>
+              <div><i>Main Genre: </i>${d.data.genre}</div>
+            `);
+        });
+      
         vis.simulation.on('tick', () => {
           links
             .attr('x1', d => d.source.x)
             .attr('y1', d => d.source.y)
             .attr('x2', d => d.target.x)
             .attr('y2', d => d.target.y);
-  
+      
           nodes
             .attr('cx', d => d.x)
-            .attr('cy', d => d.y);
-
-          nodes.on('mouseover', (event,d) => {
-            d3.select('#tooltip')
-              .style('display', 'block')
-              .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')   
-              .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
-              .html(`
-                <div class="tooltip-title"><strong>Franchise: </strong>${d.data.id}</div>
-                <div><i>Estimated Copies Sold (Millions): </i>${d.data.size}</div>
-                <div><i>Main Genre: </i>${d.data.genre}</div>
-              `);
-          })
+            .attr('cy', d => d.y)
         });
-    }
+      
+        function dragstarted(event, d) {
+          if (!event.active) vis.simulation.alphaTarget(0.3).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        }
+      
+        function dragged(event, d) {
+          d.fx = event.x;
+          d.fy = event.y;
+        }
+      
+        function dragended(event, d) {
+          if (!event.active) vis.simulation.alphaTarget(0);
+          d.fx = null;
+          d.fy = null;
+        }
+      }
+      
 
 }
