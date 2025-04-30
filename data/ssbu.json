@@ -99,7 +99,7 @@
     {
       "id": "Metal Gear",
       "size": 61.1,
-      "party": "Y",
+      "party": "N",
       "genre": "Action/Adventure"
     },
     {
@@ -111,7 +111,7 @@
     {
       "id": "Sonic",
       "size": 182.13,
-      "party": "Y",
+      "party": "N",
       "genre": "Platformer"
     },
     {
@@ -129,7 +129,7 @@
     {
       "id": "Mega Man",
       "size": 42.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Platformer"
     },
     {
@@ -147,7 +147,7 @@
     {
       "id": "Pac-Man",
       "size": 63.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Arcade"
     },
     {
@@ -165,19 +165,19 @@
     {
       "id": "Street Fighter",
       "size": 56.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Fighting"
     },
     {
       "id": "Final Fantasy",
       "size": 200.0,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
       "id": "Bayonetta",
       "size": 7.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Hack and Slash"
     },
     {
@@ -189,55 +189,55 @@
     {
       "id": "Castlevania",
       "size": 20.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Metroidvania"
     },
     {
       "id": "Persona",
       "size": 42.7,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
       "id": "Dragon Quest",
       "size": 88.0,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
       "id": "Banjo-Kazooie",
       "size": 6.34,
-      "party": "Y",
+      "party": "N",
       "genre": "Platformer"
     },
     {
       "id": "Fatal Fury",
       "size": 5.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Fighting"
     },
     {
       "id": "Arms",
       "size": 2.72,
-      "party": "N",
+      "party": "Y",
       "genre": "Fighting"
     },
     {
       "id": "Minecraft",
       "size": 350.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Sandbox"
     },
     {
       "id": "Tekken",
       "size": 57.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Fighting"
     },
     {
       "id": "Kingdom Hearts",
       "size": 36.0,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
@@ -249,13 +249,13 @@
     {
       "id": "Monster Hunter",
       "size": 108.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Action/Adventure"
     },
     {
       "id": "Undertale",
       "size": 10.0,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
@@ -267,7 +267,7 @@
     {
       "id": "Tetris",
       "size": 520.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Puzzle"
     },
     {
@@ -279,55 +279,55 @@
     {
       "id": "Assassin's Creed",
       "size": 200.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Action/Adventure"
     },
     {
       "id": "Resident Evil",
       "size": 167.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Horror"
     },
     {
       "id": "The Sims",
       "size": 200.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Simulation"
     },
     {
       "id": "Bomberman",
       "size": 23.2,
-      "party": "Y",
+      "party": "N",
       "genre": "Puzzle"
     },
     {
       "id": "Virtua Fighter",
       "size": 18.8,
-      "party": "Y",
+      "party": "N",
       "genre": "Fighting"
     },
     {
       "id": "Elder Scrolls",
       "size": 59.3,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
       "id": "Fallout",
       "size": 38.0,
-      "party": "Y",
+      "party": "N",
       "genre": "RPG"
     },
     {
       "id": "Devil May Cry",
       "size": 33.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Hack and Slash"
     },
     {
       "id": "Rabbids",
       "size": 20.0,
-      "party": "Y",
+      "party": "N",
       "genre": "Tactical RPG"
     },
     {

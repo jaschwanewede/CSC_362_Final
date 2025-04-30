@@ -63,8 +63,8 @@ class ForceDirectedGraph {
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
-            .attr('r', d => d.size/100) //CHECK FOR FUNCTIONALITY, CHANGE TO LOG SCALE
-            .attr('fill', d => 'blue'); //CHANGE TO Y/N PARTY SYSTEM    
+            .attr('r', d => d.size/100) //CHECK FOR FUNCTIONALITY, CHANGE TO LOG SCALE   
+            .attr("fill", d => d.party === "Y" ? "red" : "blue"); 
     
         vis.simulation.on('tick', () => {
           links
