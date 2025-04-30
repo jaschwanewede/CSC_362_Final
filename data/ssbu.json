@@ -31,7 +31,7 @@
       "genre": "Party"
     },
     {
-      "id": "Legend of Zelda",
+      "id": "The Legend of Zelda",
       "size": 170.35,
       "party": "Y",
       "genre": "Action/Adventure"
@@ -366,7 +366,7 @@
     },
     {
       "source": "Smash Bros Ultimate",
-      "target": "Legend of Zelda",
+      "target": "The Legend of Zelda",
       "type": "Z"
     },
     {
@@ -641,7 +641,7 @@
     },
     {
       "source": "Super Mario",
-      "target": "Legend of Zelda",
+      "target": "The Legend of Zelda",
       "type": "X"
     },
     {
@@ -821,7 +821,7 @@
     },
     {
       "source": "Donkey Kong",
-      "target": "Legend of Zelda",
+      "target": "The Legend of Zelda",
       "type": "X"
     },
     {
@@ -911,7 +911,7 @@
     },
     {
       "source": "Yoshi",
-      "target": "Legend of Zelda",
+      "target": "The Legend of Zelda",
       "type": "X"
     },
     {
@@ -951,7 +951,7 @@
     },
     {
       "source": "Wario",
-      "target": "Legend of Zelda",
+      "target": "The Legend of Zelda",
       "type": "X"
     },
     {
@@ -1055,92 +1055,92 @@
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Kirby",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Fire Emblem",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Game & Watch",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Kid Icarus",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "R.O.B.",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Sonic",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Pikmin",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Animal Crossing",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Wii Series",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Xenoblade",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Bayonetta",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Splatoon",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Tekken",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Nintendogs",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Monster Hunter",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Tetris",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "The Sims",
       "type": "X"
     },
     {
-      "source": "Legend of Zelda",
+      "source": "The Legend of Zelda",
       "target": "Elder Scrolls",
       "type": "X"
     },
