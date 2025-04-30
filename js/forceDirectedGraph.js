@@ -32,7 +32,10 @@ class ForceDirectedGraph {
           .attr('transform', `translate(${vis.config.margin.left},${vis.config.margin.top})`);
         
         vis.simulation = d3.forceSimulation()
-          .force('link', d3.forceLink().id(d => d.id))
+          .force('link', d3.forceLink()
+            .id(d => d.id)
+            .distance(100)
+            .strength(0.05))
           .force('charge', d3.forceManyBody())
           .force('center', d3.forceCenter(vis.config.width / 2, vis.config.height / 2));
       
@@ -63,8 +66,8 @@ class ForceDirectedGraph {
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
-            .attr('r', d => d.size/100) //CHECK FOR FUNCTIONALITY, CHANGE TO LOG SCALE   
-            .attr("fill", d => d.party === "Y" ? "red" : "blue"); 
+          .attr('r', d => 3 * Math.log10(d.size)+4) //PLAY AROUND W LOG SCALE ~ Mult is divergent, add is convergent 
+          .attr("fill", d => d.party === "Y" ? "red" : "blue"); 
     
         vis.simulation.on('tick', () => {
           links
