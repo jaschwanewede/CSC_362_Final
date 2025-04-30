@@ -87,9 +87,9 @@ class ForceDirectedGraph {
               .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')   
               .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
               .html(`
-                <div class="tooltip-title"><strong>Franchise: </strong>${d.data.id}</div>
-                <div><i>Estimated Copies Sold (Millions): </i>${d.data.size}</div>
-                <div><i>Main Genre: </i>${d.data.genre}</div>
+                <div class="tooltip-title"><strong>Franchise: </strong>${d.id}</div>
+                <div><i>Estimated Copies Sold (Millions): </i>${d.size}</div>
+                <div><i>Main Genre: </i>${d.genre}</div>
               `);
           })
         });
