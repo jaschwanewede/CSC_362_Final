@@ -8,8 +8,8 @@ class ForceDirectedGraph {
     constructor(_config, _data) {
         this.config = {
           parentElement: _config.parentElement,
-          containerWidth: 600,
-          containerHeight: 600,
+          containerWidth: window.innerWidth,
+          containerHeight: window.innerHeight * 0.8,
           margin: {top: 25, right: 20, bottom: 20, left: 35},
           tooltipPadding: 10
         }
