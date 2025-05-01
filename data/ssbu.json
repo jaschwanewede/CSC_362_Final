@@ -1,7 +1,7 @@
 {
   "nodes": [
     {
-      "id": "Smash Bros Ultimate",
+      "id": "Super Smash Bros. Ultimate",
       "size": 76.85,
       "party": "Y",
       "genre": "Fighting"
@@ -55,7 +55,7 @@
       "genre": "Shooter"
     },
     {
-      "id": "Pokemon",
+      "id": "Pokémon",
       "size": 480.0,
       "party": "Y",
       "genre": "RPG"
@@ -345,282 +345,282 @@
   ],
   "links": [
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Super Mario",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Donkey Kong",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Yoshi",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Wario",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "The Legend of Zelda",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Metroid",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Kirby",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Star Fox",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
-      "target": "Pokemon",
+      "source": "Super Smash Bros. Ultimate",
+      "target": "Pokémon",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Mother/Earthbound",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "F-Zero",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Ice Climber",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Fire Emblem",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Game & Watch",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Kid Icarus",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Metal Gear",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "R.O.B.",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Sonic",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Pikmin",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Animal Crossing",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Mega Man",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Wii Series",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Punch-Out",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Pac-Man",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Xenoblade",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Duck Hunt",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Street Fighter",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Final Fantasy",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Bayonetta",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Splatoon",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Castlevania",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Persona",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Dragon Quest",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Banjo-Kazooie",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Fatal Fury",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Arms",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Minecraft",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Tekken",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Kingdom Hearts",
       "type": "Z"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Nintendogs",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Monster Hunter",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Undertale",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Cuphead",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Tetris",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Golden Sun",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Assassin's Creed",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Resident Evil",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "The Sims",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Bomberman",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Virtua Fighter",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Elder Scrolls",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Fallout",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Devil May Cry",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Rabbids",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Shovel Knight",
       "type": "Y"
     },
     {
-      "source": "Smash Bros Ultimate",
+      "source": "Super Smash Bros. Ultimate",
       "target": "Balloon Fight",
       "type": "Y"
     },
@@ -661,7 +661,7 @@
     },
     {
       "source": "Super Mario",
-      "target": "Pokemon",
+      "target": "Pokémon",
       "type": "X"
     },
     {
@@ -841,7 +841,7 @@
     },
     {
       "source": "Donkey Kong",
-      "target": "Pokemon",
+      "target": "Pokémon",
       "type": "X"
     },
     {
@@ -971,7 +971,7 @@
     },
     {
       "source": "Wario",
-      "target": "Pokemon",
+      "target": "Pokémon",
       "type": "X"
     },
     {
@@ -1255,17 +1255,17 @@
       "type": "X"
     },
     {
-      "source": "Pokemon",
+      "source": "Pokémon",
       "target": "Animal Crossing",
       "type": "X"
     },
     {
-      "source": "Pokemon",
+      "source": "Pokémon",
       "target": "Splatoon",
       "type": "X"
     },
     {
-      "source": "Pokemon",
+      "source": "Pokémon",
       "target": "Tetris",
       "type": "X"
     },
