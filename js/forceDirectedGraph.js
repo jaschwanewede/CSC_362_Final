@@ -48,8 +48,6 @@ class ForceDirectedGraph {
     
         vis.simulation.nodes(vis.data.nodes);
         vis.simulation.force('link').links(vis.data.links);
-    
-        vis.colorScale.domain(vis.data.nodes.map(d => d.group)); //ADD COLORSCALE
         
         vis.renderVis();
   
@@ -68,23 +66,29 @@ class ForceDirectedGraph {
           .data(vis.data.nodes, d => d.id)
           .join('circle')
           .attr('r', d => 3 * Math.log10(d.size) + 4)
-          .attr("fill", d => d.party === "Y" ? "red" : "blue")
+          .attr("fill", d => d.party === "Y" ? "#d7191c"
+            : "#2c7bb6") //color blind safe
+          .attr('tabindex', '0')
           .call(d3.drag() //DRAG CALL
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended));
       
-            nodes.on('mouseover', (event,d) => {
-              d3.select('#tooltip')
-                .style('display', 'block')
-                .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')   
-                .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
-                .html(`
-                  <div class="tooltip-title"><strong>Franchise: </strong>${d.id}</div>
-                  <div><i>Estimated Copies Sold (Millions): </i>${d.size}</div>
-                  <div><i>Main Genre: </i>${d.genre}</div>
-                `);
-        });
+        nodes
+          .on('mouseover', (event, d) => showTooltip(event, d))
+          .on('mouseout', hideTooltip)
+          .on('keydown', function(event, d) { //shows tooltip if enter is pressed (accesibility)
+            if (event.key === "Enter") {
+              const node = this.getBoundingClientRect();
+
+              //part below assisted by ChatGPT
+              const fakeEvent = {
+                pageX: node.left + window.scrollX + node.width / 2,
+                pageY: node.top + window.scrollY + node.height / 2
+              };
+              showTooltip(fakeEvent, d)
+            }
+          });
       
         vis.simulation.on('tick', () => {
           links
@@ -113,8 +117,25 @@ class ForceDirectedGraph {
           if (!event.active) vis.simulation.alphaTarget(0);
           d.fx = null;
           d.fy = null;
+
         }
+
+        function showTooltip(event, d) {
+          d3.select('#tooltip')
+            .style('display', 'block')
+            .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
+            .style('top', (event.pageY + vis.config.tooltipPadding) + 'px')
+            .html(`
+              <div class="tooltip-title"><strong>Franchise: </strong>${d.id}</div>
+              <div><i>Estimated Copies Sold (Millions): </i>${d.size}</div>
+              <div><i>Main Genre: </i>${d.genre}</div>
+            `);
+        }
+
+        function hideTooltip() {
+          d3.select('#tooltip').style('display', 'none');
+        }
+
       }
-      
 
 }

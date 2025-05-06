@@ -9,11 +9,21 @@
 
 </head>
 <body>
-    <h1>Network of Super Smash Bros. Ultimate Franchise Links</h1>
+    <div tabindex="0"> <h1>Network of Super Smash Bros. Ultimate Franchise Links</h1> </div>
+    
+    <div tabindex="0"> <h2>By Will Schuckenbrock and Jack Schwanewede</h2> </div>
+    
+    <div tabindex="0"> This visualization depicts crossovers between Super Smash Bros. Ultimate (2018)
+        and several other video game franchises. Different video game franchises are represented by nodes (circles), and 
+        a crossover is represented by the links (lines). The nodes are colored based on whether they are a Nintendo Franchise,
+        where red represents Nintendo and blue represents a third party developer. The size of the nodes are also dependent on the 
+        amount of copies sold. Highlighting each node reveals more information about the franchise, such as the copies sold, genre, and name.
+    </div>
+    
 
-    <div id="force-directed-graph"></div>
-    <div id="name"></div>
-    <div id="tooltip"></div>
+    <div tabindex="0", id="force-directed-graph"></div> <!-- add alt text-->
+    
+    <div tabindex="0", id="tooltip"></div>
 
     <script src="../js/d3.v6.min.js"></script>
     <script src="js/forceDirectedGraph.js"></script>
