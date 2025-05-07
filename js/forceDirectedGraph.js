@@ -41,6 +41,15 @@ class ForceDirectedGraph {
           .force('charge', d3.forceManyBody())
           .force('center', d3.forceCenter(vis.config.width / 2, vis.config.height / 2));
       
+        //ChatGPT assisted, helping with clicking off node by clicking svg
+        vis.svg.on('click', function(event) {
+          if (event.target.tagName === 'svg') {
+            vis.chart.selectAll('circle').style('opacity', 1).classed('active', false);
+            vis.chart.selectAll('line').style('opacity', 1);
+          }
+        });
+        //end of ChatGPT
+        
         vis.updateVis();
       }
 
