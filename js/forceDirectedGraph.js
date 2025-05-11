@@ -121,7 +121,19 @@ class ForceDirectedGraph {
               vis.selectedNode = clickedNode; // set new node
               const neighbors = new Set(clickedNode.neighbors.map(d => d.id));
               neighbors.add(clickedNode.id); // Include clicked node itself
+
+              const sortedNeighbors = clickedNode.neighbors
+                .sort((a, b) => b.size - a.size);
+
+              const dropdown = d3.select("#neighbors");
+              dropdown.selectAll('option').remove();
           
+              sortedNeighbors.forEach(neighbor => {
+                dropdown.append('option')
+                .attr('size', neighbor.id)
+                .text(`${neighbor.id}: ${neighbor.size}M copies sold`);
+              });
+
               nodes
                 .style('opacity', d => neighbors.has(d.id) ? 1 : 0.1)
                 .classed('active', d => d.id === clickedNode.id);
