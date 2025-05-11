@@ -46,6 +46,16 @@ class ForceDirectedGraph {
           if (event.target.tagName === 'svg') {
             vis.chart.selectAll('circle').style('opacity', 1).classed('active', false);
             vis.chart.selectAll('line').style('opacity', 1);
+
+
+            const dropdown = d3.select("#neighbors");
+            dropdown.selectAll('option').remove();
+
+            const current = d3.select("#current");
+            current.selectAll('option').remove();
+
+            current.append('option')
+              .text("None");
           }
         });
         //end of ChatGPT
@@ -124,6 +134,17 @@ class ForceDirectedGraph {
               //resets all nodes/links
               vis.chart.selectAll('circle').style('opacity', 1).classed('active', false);
               vis.chart.selectAll('line').style('opacity', 1);
+
+              const dropdown = d3.select("#neighbors");
+              dropdown.selectAll('option').remove();
+
+              const current = d3.select("#current");
+              current.selectAll('option').remove();
+
+              current.append('option')
+                .text("None");
+
+              
             }
           })
           
@@ -183,6 +204,16 @@ class ForceDirectedGraph {
           
             links
               .style('opacity', 1);
+
+            const dropdown = d3.select("#neighbors");
+            dropdown.selectAll('option').remove();
+
+            const current = d3.select("#current");
+            current.selectAll('option').remove();
+
+            current.append('option')
+              .text("None");
+          
           }
       
         vis.simulation.on('tick', () => {
