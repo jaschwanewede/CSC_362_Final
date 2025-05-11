@@ -95,25 +95,47 @@ class ForceDirectedGraph {
             .on("end", dragended));
       
         nodes
-          .on('mouseover', (event, d) => showTooltip(event, d))
-          .on('mouseout', hideTooltip)
-          .on('keydown', function(event, d) { //shows tooltip if enter is pressed (accesibility)
-            if (event.key === "Enter") {
+          .on('mouseover', (event, d) => showTooltip(event, d)) //shows tooltip when mouseover
+          .on('mouseout', hideTooltip) //hides tooltip 
+
+          .on('focus', function(event, d) { //shows tooltip if enter is tabbed (accesibility)
               const node = this.getBoundingClientRect();
 
               //part below assisted by ChatGPT
               const fakeEvent = {
                 pageX: node.left + window.scrollX + node.width / 2,
                 pageY: node.top + window.scrollY + node.height / 2
-              };
+              };//end of assistance 
+
               showTooltip(fakeEvent, d)
-            }
           })
 
-          //.on('click', function(event, clickedBackground){}
+          .on('blur', (event, d) => hideTooltip) //hides tooltip when tabbed off
+          
+          .on('keydown', function(event, d) { //shows neighbors if enter is pressed (accesibility)
+            if (event.key === "Enter") {
+              
+              highlightNeighbors(event, d)
+              event.stopPropagation(); // Prevent event from bubbling up to SVG
+            }
 
-          //Code below generated (mostly) by ChatGPT
-          .on('click', function(event, clickedNode) {
+            if (event.key === "Backspace") {
+    
+              //resets all nodes/links
+              vis.chart.selectAll('circle').style('opacity', 1).classed('active', false);
+              vis.chart.selectAll('line').style('opacity', 1);
+            }
+          })
+          
+          .on('click', (event, clickedNode) => {
+            
+            highlightNeighbors(event, clickedNode);
+            event.stopPropagation(); // Prevent event from bubbling up to SVG
+            
+          });
+          
+          //ChatGPT assisted
+          function highlightNeighbors(event, clickedNode) {
             if (vis.selectedNode === clickedNode) { // if repeat node
               vis.selectedNode = null;
               resetSelect();
@@ -121,19 +143,7 @@ class ForceDirectedGraph {
               vis.selectedNode = clickedNode; // set new node
               const neighbors = new Set(clickedNode.neighbors.map(d => d.id));
               neighbors.add(clickedNode.id); // Include clicked node itself
-
-              const sortedNeighbors = clickedNode.neighbors
-                .sort((a, b) => b.size - a.size);
-
-              const dropdown = d3.select("#neighbors");
-              dropdown.selectAll('option').remove();
-          
-              sortedNeighbors.forEach(neighbor => {
-                dropdown.append('option')
-                .attr('size', neighbor.id)
-                .text(`${neighbor.id}: ${neighbor.size}M copies sold`);
-              });
-
+            
               nodes
                 .style('opacity', d => neighbors.has(d.id) ? 1 : 0.1)
                 .classed('active', d => d.id === clickedNode.id);
@@ -143,14 +153,10 @@ class ForceDirectedGraph {
                   const sourceId = typeof l.source === "object" ? l.source.id : l.source;
                   const targetId = typeof l.target === "object" ? l.target.id : l.target;
                   return neighbors.has(sourceId) && neighbors.has(targetId) ? 1 : 0.1;
-                });
+                 });
               }
-          
-            event.stopPropagation(); // Prevent event from bubbling up to SVG
-            
-          });
-          //End of ChatGPT
-
+          }
+          //end of ChatGPT assistance
 
           function resetSelect() {
             nodes
