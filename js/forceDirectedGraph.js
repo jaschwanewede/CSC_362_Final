@@ -150,10 +150,16 @@ class ForceDirectedGraph {
               const dropdown = d3.select("#neighbors");
               dropdown.selectAll('option').remove();
 
-             sortedNeighbors.forEach(neighbor => {
-             dropdown.append('option')
-              .attr('value', neighbor.id)
-              .text(`${neighbor.id}: ${neighbor.size}M copies sold)`);
+              const current = d3.select("#current");
+              current.selectAll('option').remove();
+
+              current.append('option')
+                .text(`${clickedNode.id}`);
+
+              sortedNeighbors.forEach(neighbor => {
+              dropdown.append('option')
+                .attr('value', neighbor.id)
+                .text(`${neighbor.id}: ${neighbor.size}M copies sold`);
               });
 
               nodes
