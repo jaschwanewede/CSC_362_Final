@@ -25,6 +25,7 @@
         <label for="order"> <b> Order by: <b></label>
 
         <select name="attribute" id="attr">
+        <option value="blank"></option>  <!-- do we want blanks by default?-->
         <option value="copies">Copies Sold</option>
         <option value="crossover"># of Crossovers</option>
         <option value="alpahbetical">Alpahbetical</option>
@@ -37,8 +38,9 @@
     <div tabindex="0", id="sorting"> 
 
         <label for="ranking"> <b> Sort by: <b></label>
-
+        
         <select name="sorted" id="sort">
+        <option value="blank"></option>  <!-- do we want blanks by default?-->
         <option value="ascend">Ascending</option>
         <option value="descend">Descending</option>
         </select>
