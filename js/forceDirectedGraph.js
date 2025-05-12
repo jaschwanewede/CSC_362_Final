@@ -255,6 +255,7 @@ class ForceDirectedGraph {
               <div class="tooltip-title"><strong>Franchise: </strong>${d.id}</div>
               <div><i>Estimated Copies Sold (Millions): </i>${d.size}</div>
               <div><i>Main Genre: </i>${d.genre}</div>
+              <div><i>Number of Crossovers: </i>${d.neighborCount}</div>
             `);
         }
 

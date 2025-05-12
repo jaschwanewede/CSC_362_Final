@@ -24,7 +24,7 @@
 
         <label for="order"> <b> Order by: <b></label>
 
-        <select name="attribute" id="attr">
+        <select name="attribute" id="attr" onchange="dataManipulation(); dataFiltering()">
         <option value="blank"></option>  <!-- do we want blanks by default?-->
         <option value="copies">Copies Sold</option>
         <option value="crossover"># of Crossovers</option>
@@ -39,7 +39,7 @@
 
         <label for="ranking"> <b> Sort by: <b></label>
         
-        <select name="sorted" id="sort">
+        <select name="sorted" id="sort" onchange="dataManipulation(); dataFiltering()">
         <option value="blank"></option>  <!-- do we want blanks by default?-->
         <option value="ascend">Ascending</option>
         <option value="descend">Descending</option>
