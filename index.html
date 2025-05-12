@@ -24,11 +24,10 @@
 
         <label for="order"> <b> Order by: <b></label>
 
-        <select name="attribute" id="attr" onchange="dataManipulation(); dataFiltering()">
-        <option value="blank"></option>  <!-- do we want blanks by default?-->
+        <select name="attribute" id="attr" onchange="dataManipulation(), dataFiltering();">
         <option value="copies">Copies Sold</option>
         <option value="crossover"># of Crossovers</option>
-        <option value="alpahbetical">Alpahbetical</option>
+        <option value="alphabetical">Alpahbetical</option>
         </select>
 
         <div id="game-ranks"></div>
@@ -39,8 +38,7 @@
 
         <label for="ranking"> <b> Sort by: <b></label>
         
-        <select name="sorted" id="sort" onchange="dataManipulation(); dataFiltering()">
-        <option value="blank"></option>  <!-- do we want blanks by default?-->
+        <select name="sorted" id="sort" onchange="dataManipulation(), dataFiltering();">
         <option value="ascend">Ascending</option>
         <option value="descend">Descending</option>
         </select>
@@ -48,6 +46,12 @@
         <div id="game-ranks"></div>
 
     </div>
+    
+
+    <div tabindex="0", id="order_list">
+    <select id="order" size="5" style="width: 400px;"></select>
+    </div>
+    
 
     <div tabindex="0", id="neighbor-dropdown">
     <label id="current" for="neighbors"><br> <b> Current Node: </b> <br> </label>
