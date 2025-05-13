@@ -23,11 +23,11 @@ class ForceDirectedGraph {
   
         vis.config.width = vis.config.containerWidth - vis.config.margin.left - vis.config.margin.right;
         vis.config.height = vis.config.containerHeight - vis.config.margin.top - vis.config.margin.bottom;
-
-        vis.colorScale = d3.scaleOrdinal(d3.schemeCategory10);//ADD COLORSCALE
     
+        const adjustedWidth = vis.config.width > 500 ? vis.config.width - 500 : vis.config.width;
+
         vis.svg = d3.select(vis.config.parentElement).append('svg')
-          .attr('width', vis.config.containerWidth-500) //decreasing svg size since moved over from menus
+          .attr('width', adjustedWidth)
           .attr('height', vis.config.containerHeight);
 
         vis.chart = vis.svg.append('g')
@@ -197,7 +197,7 @@ class ForceDirectedGraph {
                 .style('opacity', l => {
                   const sourceId = typeof l.source === "object" ? l.source.id : l.source;
                   const targetId = typeof l.target === "object" ? l.target.id : l.target;
-                  return neighbors.has(sourceId) && neighbors.has(targetId) ? 1 : 0.1;
+                  return (sourceId === clickedNode.id || targetId === clickedNode.id) ? 1 : 0.1;
                  });
               }
           }
