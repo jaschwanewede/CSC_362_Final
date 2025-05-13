@@ -89,8 +89,11 @@ class ForceDirectedGraph {
         let vis = this;
       
         const links = vis.chart.selectAll('line')
-          .data(vis.data.links, d => [d.source, d.target])
-          .join('line');
+          .data(vis.data.links, d => `${d.source}-${d.target}`) // Unique string key
+          .join('line')
+          .attr('stroke', d => 
+            d.type === "Z" ? '#fb9a99' : 
+            d.type === "Y" ? "#33a02c" : "#a6cee3");
       
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
