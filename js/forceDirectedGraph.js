@@ -140,20 +140,8 @@ class ForceDirectedGraph {
 
             if (event.key === "Backspace") {
     
-              //resets all nodes/links
-              vis.chart.selectAll('circle').style('opacity', 1).classed('active', false);
-              vis.chart.selectAll('line').style('opacity', 1);
+              resetSelect();
 
-              const dropdown = d3.select("#neighbors");
-              dropdown.selectAll('option').remove();
-
-              const current = d3.select("#current");
-              current.selectAll('option').remove();
-
-              current.append('option')
-                .text("None");
-
-              
             }
           })
           
@@ -163,7 +151,78 @@ class ForceDirectedGraph {
             event.stopPropagation(); // Prevent event from bubbling up to SVG
             
           });
+
+          //using the dropdowns to search for nodes/call events
+          const orderDropdown = d3.select("#order")
+          const neighborDropdown = d3.select("#neighbors");
           
+          //clicking
+          orderDropdown
+            .on("click", function() {
+              const selectedId = d3.select(this).property("value");
+
+              const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
+
+              highlightNeighbors(null, selectedNode);
+              
+            })
+            
+            .on('keydown', function(event, d) { 
+              if (event.key === "Enter") {
+                const selectedId = d3.select(this).property("value");
+
+                const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
+
+                highlightNeighbors(null, selectedNode);
+              }
+
+              if (event.key === "Backspace") {
+    
+                resetSelect();
+
+                hideTooltip();
+              }
+            })
+            
+            .on('change', function(event, d){
+              const selectedId = d3.select(this).property("value");
+
+              const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
+              
+              const fakeEvent = {
+                pageX: selectedNode.left + window.scrollX + selectedNode.width / 2,
+                pageY: selectedNode.top + window.scrollY + selectedNode.height / 2
+              };
+
+              showTooltip(event, selectedNode);
+            });
+            
+          neighborDropdown
+            .on("click", function() {
+              const selectedId = d3.select(this).property("value");
+
+              const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
+
+              highlightNeighbors(null, selectedNode);
+            
+            })
+          
+            .on('keydown', function(event, d) { 
+              if (event.key === "Enter") {
+                const selectedId = d3.select(this).property("value");
+
+                const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
+
+                highlightNeighbors(null, selectedNode);
+              }
+
+              if (event.key === "Backspace") {
+    
+                resetSelect();
+
+              }
+            });
+
           //ChatGPT assisted
           function highlightNeighbors(event, clickedNode) {
             if (vis.selectedNode === clickedNode) { // if repeat node
