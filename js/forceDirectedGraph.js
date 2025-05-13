@@ -60,6 +60,7 @@ class ForceDirectedGraph {
             current.append('option')
               .text("None");
           }
+          this.createLegend();
         });
         //end of ChatGPT
         
@@ -83,6 +84,7 @@ class ForceDirectedGraph {
         //end of ChatGPT
 
         vis.renderVis();
+        this.createLegend();
   
         console.log('Nodes:', vis.data.nodes); //DEBUGGING
         console.log('Links:', vis.data.links);
@@ -95,18 +97,19 @@ class ForceDirectedGraph {
           .data(vis.data.links, d => `${d.source}-${d.target}`) // Unique string key
           .join('line')
           .attr('stroke', d => 
-            d.type === "Z" ? '#fb9a99' : 
-            d.type === "Y" ? "#33a02c" : "#ddd");
+            d.type === "Z" ? '#fc8d59' : 
+            d.type === "Y" ? "#91bfdb" : "#e0e0e0");
       
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
           .attr('r', d => 3 * Math.log10(d.size) + 4)
           .attr("fill", d =>
-            d.id === "Super Smash Bros. Ultimate" ? "#404040" :
-            d.party === "Y" ? "#d7191c" :
-            "#2c7bb6" 
+            d.id === "Super Smash Bros. Ultimate" ? "#636363" :
+            d.party === "Y" ? "#d73027" :
+            "#4575b4" 
           )
+
           .attr('tabindex', '0')
           .call(d3.drag() //DRAG CALL
             .on("start", dragstarted)
@@ -432,6 +435,64 @@ class ForceDirectedGraph {
             .attr('stroke', null)
             .attr('stroke-width', null);
         }
+
+       function createLegend() {
+          console.log("Debug check");
+          const legend = d3.select('#legend');
+
+          const svg = legend.append('svg')
+            .attr('width', 400)
+            .attr('height', 160);
+
+          const parties = [
+          { label: 'Nintendo Franchise', color: 'red' },
+          { label: 'Third-Party Franchise', color: 'blue' }
+          ];
+
+          const links = [
+          { label: 'Fighter in Smash', color: 'pink' },
+          { label: 'Other Smash Crossover', color: 'green' },
+          { label: 'Franchise Crossover', color: 'gray' }
+          ];
+
+          svg.append('text')
+            .text('Node Color:')
+            .attr('font-weight', 'bold');
+
+          parties.forEach((item, i) => {
+          svg.append('circle')
+            .attr('cx', 20)
+            .attr('cy', 40 + i * 25)
+            .attr('r', 10)
+            .attr('fill', item.color);
+
+          svg.append('text')
+            .attr('x', 40)
+            .attr('y', 45 + i * 25)
+            .text(item.label);
+          });
+
+          svg.append('text')
+            .attr('x', 10)
+            .attr('y', 100)
+            .text('Edge Color:')
+            .attr('font-weight', 'bold');
+
+          links.forEach((item, i) => {
+          svg.append('line')
+            .attr('x1', 20)
+            .attr('y1', 115 + i * 20)
+            .attr('x2', 50)
+            .attr('y2', 115 + i * 20)
+            .attr('stroke', item.color)
+            .attr('stroke-width', 3);
+
+          svg.append('text')
+            .attr('x', 60)
+            .attr('y', 120 + i * 20)
+            .text(item.label);
+        });
+      }
 
       }
 
