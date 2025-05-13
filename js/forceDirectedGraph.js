@@ -93,14 +93,14 @@ class ForceDirectedGraph {
           .join('line')
           .attr('stroke', d => 
             d.type === "Z" ? '#fb9a99' : 
-            d.type === "Y" ? "#33a02c" : "#a6cee3");
+            d.type === "Y" ? "#33a02c" : "#ddd");
       
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
           .attr('r', d => 3 * Math.log10(d.size) + 4)
           .attr("fill", d =>
-            d.id === "Super Smash Bros. Ultimate" ? "black" :
+            d.id === "Super Smash Bros. Ultimate" ? "#636363" :
             d.party === "Y" ? "#d7191c" :
             "#2c7bb6" 
           )
