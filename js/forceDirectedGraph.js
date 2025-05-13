@@ -27,7 +27,7 @@ class ForceDirectedGraph {
         vis.colorScale = d3.scaleOrdinal(d3.schemeCategory10);//ADD COLORSCALE
     
         vis.svg = d3.select(vis.config.parentElement).append('svg')
-          .attr('width', vis.config.containerWidth)
+          .attr('width', vis.config.containerWidth-500) //decreasing svg size since moved over from menus
           .attr('height', vis.config.containerHeight);
 
         vis.chart = vis.svg.append('g')
@@ -39,7 +39,7 @@ class ForceDirectedGraph {
             .distance(100)
             .strength(0.04))
           .force('charge', d3.forceManyBody())
-          .force('center', d3.forceCenter(vis.config.width / 2, vis.config.height / 2));
+          .force('center', d3.forceCenter((vis.config.width - 500) / 2, vis.config.height / 2));
       
         //ChatGPT assisted, helping with clicking off node by clicking svg
         vis.svg.on('click', function(event) {

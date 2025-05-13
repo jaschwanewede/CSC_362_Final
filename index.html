@@ -19,7 +19,7 @@
         
         The nodes are colored based on whether they are a Nintendo Franchise,
         where red represents Nintendo and blue represents a third party developer. The size of the nodes are also dependent on the 
-        amount of copies sold. The link color depends on what type of crossover the games have. Pink means the franchise has a playable Fighter in <i>Smash</i>, \
+        amount of copies sold. The link color depends on what type of crossover the games have. Pink means the franchise has a playable Fighter in <i>Smash</i>,
         Green is a different crossver with <i>Smash</i> (Item, Stage, Spirit, etc.), and gray are crossovers between franchises.
         
         Highlighting each node reveals more information about the franchise, such as the name, copies sold, genre, and number of crossovers.
@@ -27,47 +27,52 @@
 
 
 
-    <div tabindex="0", id="ordering"> 
+    <div class="container">
 
-        <label for="order"> <b> Order by: <b></label>
+        <div class="menus">
+            <div tabindex="0", id="ordering"> 
 
-        <select name="attribute" id="attr" onchange="dataManipulation(), dataFiltering();">
-        <option value="copies">Copies Sold</option>
-        <option value="crossover"># of Crossovers</option>
-        <option value="alphabetical">Alpahbetical</option>
-        </select>
+                <label for="order"> <b> Order by: <b></label>
 
-        <div id="game-ranks"></div>
+                <select name="attribute" id="attr" onchange="dataManipulation(), dataFiltering();">
+                <option value="copies">Copies Sold</option>
+                <option value="crossover"># of Crossovers</option>
+                <option value="alphabetical">Alpahbetical</option>
+                </select>
 
-    </div>
+                <div id="game-ranks"></div>
 
-    <div tabindex="0", id="sorting"> 
+            </div>
 
-        <label for="ranking"> <b> Sort by: <b></label>
+            <div tabindex="0", id="sorting"> 
+
+                <label for="ranking"> <b> Sort by: <b></label>
+                
+                <select name="sorted" id="sort" onchange="dataManipulation(), dataFiltering();">
+                <option value="ascend">Ascending</option>
+                <option value="descend">Descending</option>
+                </select>
+
+                <div id="game-ranks"></div>
+
+            </div>
+            
+
+            <div tabindex="0", id="order_list">
+            <select id="order" size="5" style="width: 400px;"></select>
+            </div>
+            
+
+            <div tabindex="0", id="neighbor-dropdown">
+            <label id="current" for="neighbors"><br> <b> Current Node: </b> <br> </label>
+            <b>Neighbors:</b><br>
+            <select id="neighbors" size="5" style="width: 400px;"></select>
+            </div>
+        </div>
+
+        <div tabindex="0", id="force-directed-graph"></div> <!-- add alt text-->
         
-        <select name="sorted" id="sort" onchange="dataManipulation(), dataFiltering();">
-        <option value="ascend">Ascending</option>
-        <option value="descend">Descending</option>
-        </select>
-
-        <div id="game-ranks"></div>
-
     </div>
-    
-
-    <div tabindex="0", id="order_list">
-    <select id="order" size="5" style="width: 400px;"></select>
-    </div>
-    
-
-    <div tabindex="0", id="neighbor-dropdown">
-    <label id="current" for="neighbors"><br> <b> Current Node: </b> <br> </label>
-    <b>Neighbors:</b><br>
-    <select id="neighbors" size="5" style="width: 400px;"></select>
-    </div>
-    
-
-    <div tabindex="0", id="force-directed-graph"></div> <!-- add alt text-->
     
     <div tabindex="0", id="tooltip"></div>
 
