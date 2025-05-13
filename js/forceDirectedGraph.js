@@ -44,6 +44,9 @@ class ForceDirectedGraph {
         //ChatGPT assisted, helping with clicking off node by clicking svg
         vis.svg.on('click', function(event) {
           if (event.target.tagName === 'svg') {
+            
+            d3.select('#tooltip').style('display', 'none');
+
             vis.chart.selectAll('circle').style('opacity', 1).classed('active', false);
             vis.chart.selectAll('line').style('opacity', 1);
 
@@ -131,6 +134,7 @@ class ForceDirectedGraph {
           .on('keydown', function(event, d) { //shows neighbors if enter is pressed (accesibility)
             if (event.key === "Enter") {
               
+              showTooltip(event, d)
               highlightNeighbors(event, d)
               event.stopPropagation(); // Prevent event from bubbling up to SVG
             }
@@ -143,7 +147,7 @@ class ForceDirectedGraph {
           })
           
           .on('click', (event, clickedNode) => {
-            
+            showTooltip(event, clickedNode)
             highlightNeighbors(event, clickedNode);
             event.stopPropagation(); // Prevent event from bubbling up to SVG
             
@@ -153,13 +157,28 @@ class ForceDirectedGraph {
           const orderDropdown = d3.select("#order")
           const neighborDropdown = d3.select("#neighbors");
           
-          //clicking
+
+          //order Dropdown searching
           orderDropdown
-            .on("click", function() {
+            .on("click", function(event, clickedNode) {
               const selectedId = d3.select(this).property("value");
 
               const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
 
+              //chatGPT assisted
+              const circle = vis.chart.selectAll('circle')
+                .filter(d => d.id === selectedId)
+                .node();
+
+              const location = circle.getBoundingClientRect();
+              //end of assistance 
+
+              const fakeEvent = {
+                pageX: location.left + window.scrollX + location.width / 2,
+                pageY: location.top + window.scrollY + location.height / 2
+              };
+
+              showTooltip(fakeEvent, selectedNode)
               highlightNeighbors(null, selectedNode);
               
             })
@@ -170,14 +189,25 @@ class ForceDirectedGraph {
 
                 const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
 
+                //chatGPT assisted
+                const circle = vis.chart.selectAll('circle')
+                  .filter(d => d.id === selectedId)
+                  .node();
+
+                const location = circle.getBoundingClientRect();
+                //end of assistance 
+
+                const fakeEvent = {
+                  pageX: location.left + window.scrollX + location.width / 2,
+                  pageY: location.top + window.scrollY + location.height / 2
+                };
+
+                showTooltip(fakeEvent, selectedNode)
                 highlightNeighbors(null, selectedNode);
               }
 
               if (event.key === "Backspace") {
-    
                 resetSelect();
-
-                hideTooltip();
               }
             })
             
@@ -186,38 +216,95 @@ class ForceDirectedGraph {
 
               const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
               
+              //chatGPT assisted
+              const circle = vis.chart.selectAll('circle')
+                .filter(d => d.id === selectedId)
+                .node();
+
+              const location = circle.getBoundingClientRect();
+              //end of assistance 
+
               const fakeEvent = {
-                pageX: selectedNode.left + window.scrollX + selectedNode.width / 2,
-                pageY: selectedNode.top + window.scrollY + selectedNode.height / 2
+                pageX: location.left + window.scrollX + location.width / 2,
+                pageY: location.top + window.scrollY + location.height / 2
               };
 
-              showTooltip(event, selectedNode);
+              showTooltip(fakeEvent, selectedNode);
             });
             
+
+          //neighbor Dropdown searching
           neighborDropdown
-            .on("click", function() {
+            .on("click", function(event, clickedNode) {
               const selectedId = d3.select(this).property("value");
 
               const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
 
+              //chatGPT assisted
+              const circle = vis.chart.selectAll('circle')
+                .filter(d => d.id === selectedId)
+                .node();
+
+              const location = circle.getBoundingClientRect();
+              //end of assistance 
+
+              const fakeEvent = {
+                pageX: location.left + window.scrollX + location.width / 2,
+                pageY: location.top + window.scrollY + location.height / 2
+              };
+
+              showTooltip(fakeEvent, selectedNode)
               highlightNeighbors(null, selectedNode);
-            
+              
             })
-          
+            
             .on('keydown', function(event, d) { 
               if (event.key === "Enter") {
                 const selectedId = d3.select(this).property("value");
 
                 const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
 
+                //chatGPT assisted
+                const circle = vis.chart.selectAll('circle')
+                  .filter(d => d.id === selectedId)
+                  .node();
+
+                const location = circle.getBoundingClientRect();
+                //end of assistance 
+
+                const fakeEvent = {
+                  pageX: location.left + window.scrollX + location.width / 2,
+                  pageY: location.top + window.scrollY + location.height / 2
+                };
+
+                showTooltip(fakeEvent, selectedNode)
                 highlightNeighbors(null, selectedNode);
               }
 
               if (event.key === "Backspace") {
-    
                 resetSelect();
-
               }
+            })
+            
+            .on('change', function(event, d){
+              const selectedId = d3.select(this).property("value");
+
+              const selectedNode = vis.data.nodes.find(d => d.id === selectedId);
+              
+              //chatGPT assisted
+              const circle = vis.chart.selectAll('circle')
+                .filter(d => d.id === selectedId)
+                .node();
+
+              const location = circle.getBoundingClientRect();
+              //end of assistance 
+
+              const fakeEvent = {
+                pageX: location.left + window.scrollX + location.width / 2,
+                pageY: location.top + window.scrollY + location.height / 2
+              };
+
+              showTooltip(fakeEvent, selectedNode);
             });
 
           //ChatGPT assisted
@@ -263,6 +350,7 @@ class ForceDirectedGraph {
           //end of ChatGPT assistance
 
           function resetSelect() {
+            hideTooltip();
             nodes
               .style('opacity', 1)
               .classed('active', false);
@@ -312,6 +400,18 @@ class ForceDirectedGraph {
         }
 
         function showTooltip(event, d) {
+
+          //reset other strokes
+          vis.chart.selectAll('circle')
+            .attr('stroke', null)
+            .attr('stroke-width', null);
+
+          //add slight stroke to make node more visible
+          vis.chart.selectAll('circle')
+            .filter(game => game.id === d.id)
+            .attr('stroke', 'black')
+            .attr('stroke-width', 2);
+
           d3.select('#tooltip')
             .style('display', 'block')
             .style('left', (event.pageX + vis.config.tooltipPadding) + 'px')
@@ -326,6 +426,11 @@ class ForceDirectedGraph {
 
         function hideTooltip() {
           d3.select('#tooltip').style('display', 'none');
+
+          //reset all strokes
+          vis.chart.selectAll('circle')
+            .attr('stroke', null)
+            .attr('stroke-width', null);
         }
 
       }
