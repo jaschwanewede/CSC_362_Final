@@ -100,7 +100,7 @@ class ForceDirectedGraph {
           .join('circle')
           .attr('r', d => 3 * Math.log10(d.size) + 4)
           .attr("fill", d =>
-            d.id === "Super Smash Bros. Ultimate" ? "#636363" :
+            d.id === "Super Smash Bros. Ultimate" ? "#404040" :
             d.party === "Y" ? "#d7191c" :
             "#2c7bb6" 
           )
