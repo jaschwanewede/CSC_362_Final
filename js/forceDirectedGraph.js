@@ -96,8 +96,11 @@ class ForceDirectedGraph {
           .data(vis.data.nodes, d => d.id)
           .join('circle')
           .attr('r', d => 3 * Math.log10(d.size) + 4)
-          .attr("fill", d => d.party === "Y" ? "#d7191c"
-            : "#2c7bb6") //color blind safe
+          .attr("fill", d =>
+            d.id === "Super Smash Bros. Ultimate" ? "black" :
+            d.party === "Y" ? "#d7191c" :
+            "#2c7bb6" 
+          )
           .attr('tabindex', '0')
           .call(d3.drag() //DRAG CALL
             .on("start", dragstarted)
