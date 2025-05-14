@@ -17,12 +17,12 @@
         and several other video game franchises. Different video game franchises are represented by nodes (circles), and 
         a crossover is represented by the links (lines). 
         
-        The nodes are colored based on whether they are a Nintendo Franchise,
-        where red represents Nintendo and blue represents a third party developer. The size of the nodes are also dependent on the 
-        amount of copies sold. The link color depends on what type of crossover the games have. Pink means the franchise has a playable Fighter in <i>Smash</i>,
-        Green is a different crossver with <i>Smash</i> (Item, Stage, Spirit, etc.), and gray are crossovers between franchises.
-        
-        Highlighting each node reveals more information about the franchise, such as the name, copies sold, genre, and number of crossovers.
+        Read the legend below to see how information about nodes and links are colored. The size of the nodes are also dependent on the 
+        amount of copies sold. Hovering over each node reveals more information about the franchise, such as the name, copies sold, genre, and number of crossovers. Clicking 
+        on a franchise highlights other games that the current franchise has collaborated with.
+
+        Finally, you can use the menus to sort the games in order of Copies Sold, # of Crossovers, and Alphabetically. Clicking on any games in the Order menu or the Crossover List 
+        will also find the node in the graph.
     </div>
 
 
@@ -40,8 +40,6 @@
                 <option value="alphabetical">Alpahbetical</option>
                 </select>
 
-                <div id="game-ranks"></div>
-
             </div>
 
             <div tabindex="0", id="sorting"> 
@@ -49,11 +47,10 @@
                 <label for="ranking"> <b> Sort by: <b></label>
                 
                 <select name="sorted" id="sort" onchange="dataManipulation(), dataFiltering();">
-                <option value="ascend">Ascending</option>
                 <option value="descend">Descending</option>
+                <option value="ascend">Ascending</option>
+                
                 </select>
-
-                <div id="game-ranks"></div>
 
             </div>
             
@@ -61,13 +58,45 @@
             <div tabindex="0", id="order_list">
             <select id="order" size="5" style="width: 400px;"></select>
             </div>
+
+            
             
 
+
             <div tabindex="0", id="neighbor-dropdown">
-            <label id="current" for="neighbors"><br> <b> Current Node: </b> <br> </label>
-            <b>Neighbors:</b><br>
+            <label id="current" for="neighbors"><br> <b> Current Franchise: </b> <br> </label>
+            <label> <b>Crossover List:</b> <br> </label> 
             <select id="neighbors" size="5" style="width: 400px;"></select>
             </div>
+
+
+            <div tabindex="0", id="filteringNode"> 
+
+                <label for="filterNode"> <b> Nodes Display:<b></label>
+                
+                <select name="filterNode" id="filteredNode">
+                <option value="all">All</option>
+                <option value="nintendo">Nintendo</option>
+                <option value="3rd">Third Party</option>
+                
+                </select>
+
+            </div>
+
+            <div tabindex="0", id="filteringLink"> 
+
+                <label for="filterLink"> <b> Links Display:<b></label>
+                
+                <select name="filterLink" id="filteredLink">
+                <option value="all">All</option>
+                <option value="fighter">Smash Fighter</option>
+                <option value="other">Smash Other</option>
+                <option value="non-smash">Non-Smash</option>
+                
+                </select>
+
+            </div>
+
 
             <div tabindex="0">
                 <svg id="legend" height=160 width=400></svg>

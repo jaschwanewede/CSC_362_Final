@@ -98,14 +98,14 @@ class ForceDirectedGraph {
           .join('line')
           .attr('stroke', d => 
             d.type === "Z" ? '#fc8d59' : 
-            d.type === "Y" ? "#91bfdb" : "#e0e0e0");
+            d.type === "Y" ? "#91bfdb" : "#ddd");
       
         const nodes = vis.chart.selectAll('circle')
           .data(vis.data.nodes, d => d.id)
           .join('circle')
           .attr('r', d => 3 * Math.log10(d.size) + 4)
           .attr("fill", d =>
-            d.id === "Super Smash Bros. Ultimate" ? "#636363" :
+            d.id === "Super Smash Bros. Ultimate" ? "#404040" :
             d.party === "Y" ? "#d73027" :
             "#4575b4" 
           )
@@ -309,6 +309,67 @@ class ForceDirectedGraph {
 
               showTooltip(fakeEvent, selectedNode);
             });
+
+          const nodeFilter = d3.select("#filteredNode")
+          
+          nodeFilter
+            .on('change', function(){
+              filterNodes();
+            });
+
+          function filterNodes() {
+            var filter = document.getElementById("filteredNode");
+	          var selectedFilter = filter.options[filter.selectedIndex].value;  
+
+              if (selectedFilter === 'all') {
+                vis.chart.selectAll('circle')
+
+                  .style('opacity', 1); //reset, all present
+
+              } else if (selectedFilter === 'nintendo'){
+               
+                vis.chart.selectAll('circle')
+                  .style('opacity', d => d.party === "Y" ? 1 : 0.1);
+
+              } else if (selectedFilter === '3rd') {
+
+                vis.chart.selectAll('circle')
+                  .style('opacity', d => d.party === "N" ? 1 : 0.1);
+              }
+          }
+
+          const linkFilter = d3.select("#filteredLink")
+          
+          linkFilter
+            .on('change', function(){
+              filterLinks();
+            });
+
+          function filterLinks() {
+            var filter = document.getElementById("filteredLink");
+	          var selectedFilter = filter.options[filter.selectedIndex].value;  
+
+              if (selectedFilter === 'all') {
+                vis.chart.selectAll('line')
+                  .style('opacity', 1); //reset, all present
+
+              } else if (selectedFilter === 'fighter'){
+               
+                vis.chart.selectAll('line')
+                  .style('opacity', d => d.type === "Z" ? 1 : 0.1);
+
+              } else if (selectedFilter === 'other') {
+
+                vis.chart.selectAll('line')
+                  .style('opacity', d => d.type === "Y" ? 1 : 0.1);
+
+              } else if (selectedFilter === 'non-smash') {
+
+                vis.chart.selectAll('line')
+                  .style('opacity', d => d.type === "X" ? 1 : 0.1);
+              }
+          }
+
 
           //ChatGPT assisted
           function highlightNeighbors(event, clickedNode) {
