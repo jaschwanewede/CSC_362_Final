@@ -555,6 +555,9 @@ class ForceDirectedGraph {
         });
       }
 
+      dataManipulation(); 
+      dataFiltering();
+
       }
 
 }
